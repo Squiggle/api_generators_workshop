@@ -1,0 +1,84 @@
+openapi: "3.0.0"
+info:
+  title: example-api
+  description: This is an example API schema
+  version: 0.1
+servers:
+- url: https://localhost
+  description: Development server
+paths:
+  /users:
+    get:
+      operationId: getAllUsers
+      tags:
+        - user
+      description: Returns a list of all users in the system
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+  /user:
+    get:
+      operationId: getUser
+      tags:
+        - user
+      description: Returns an individual user by id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+        '404':
+          description: No user with given ID exists
+    post:
+      operationId: createUser
+      tags:
+        - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newUser'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+components:
+  schemas:
+    newUser:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+    user:
+      allOf:
+        - $ref: '#/components/schemas/newUser'
+        - type: object
+          required:
+            - id
+          properties:
+            id:
+              type: number
+      example:
+        id: 1
+        name: Alisdair
+    users:
+      type: array
+      items:
+        $ref: '#components/schemas/user'
+      example:
+        - id: 1
+          name: Adam
+        - id: 2
+          name: Betty
+        - id: 3
+          name: Calvin
+
