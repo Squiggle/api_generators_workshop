@@ -43,3 +43,8 @@ openapi2postmanv2 --spec schema.yml --output postman.json
 
 Postman 👉 Import
 
+## GraphQL
+
+Hasura is a GraphQL server that exposes a Postgres database as a GraphQL endpoint. This means __the only prerequisite is a series of SQL scripts__. Better still, you can [boot up an instance using Heroku](https://docs.hasura.io/1.0/graphql/manual/getting-started/heroku-simple.html) within minutes.
+
+A competitor, Postgraphile, also performs this task.
