@@ -1,7 +1,0 @@
-### local server
-
-GET http://localhost:8080/users/1
-
-### postman mock
-
-GET https://84c6f163-7040-4a05-b9ea-12b00ba252d1.mock.pstmn.io/users
