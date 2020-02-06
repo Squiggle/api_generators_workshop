@@ -1,0 +1,20 @@
+  /users/{id}:
+    get:
+      operationId: getUser
+      tags:
+        - user
+      description: Fetch and individual User by id
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'

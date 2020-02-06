@@ -20,21 +20,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/users'
-  /user:
-    get:
-      operationId: getUser
-      tags:
-        - user
-      description: Returns an individual user by id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/user'
-        '404':
-          description: No user with given ID exists
     post:
       operationId: createUser
       tags:
@@ -59,26 +44,27 @@ components:
         name:
           type: string
     user:
-      allOf:
-        - $ref: '#/components/schemas/newUser'
-        - type: object
-          required:
-            - id
-          properties:
-            id:
-              type: number
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
       example:
         id: 1
-        name: Alisdair
+        name: Alexis
     users:
       type: array
       items:
-        $ref: '#components/schemas/user'
+        $ref: '#/components/schemas/user'
       example:
         - id: 1
-          name: Adam
+          name: Alexis
         - id: 2
-          name: Betty
+          name: Billy
         - id: 3
-          name: Calvin
+          name: Chris
 

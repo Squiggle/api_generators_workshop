@@ -1,0 +1,5 @@
+
+POST http://localhost:8080/v1/graphql
+Content-Type: application/json
+
+{ "query": "{users{id,name}}" }
