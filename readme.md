@@ -74,7 +74,7 @@ INSERT INTO users (id, name) VALUES (3, 'Chris');
 Using `curl` to query the GraphQL endpoint:
 
 ```
-curl -d '{"query":"{users{id,name}}"}' -H "Content-Type: application/json" -X POST http://localhost:8080/v1/graphql 
+curl -d '{"query":"{users{id,name}}"}' -H "Content-Type: application/json" -X POST http://localhost:8080/v1/graphql | jq
 ```
 
 # Resources
