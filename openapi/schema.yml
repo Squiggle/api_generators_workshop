@@ -32,6 +32,10 @@ paths:
       responses:
         '201':
           description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userCreatedResponse'
         '400':
           description: Bad Request
 components:
@@ -43,6 +47,13 @@ components:
       properties:
         name:
           type: string
+    userCreatedResponse:
+      type: object
+      properties:
+        id:
+          type: string
+      example:
+        id: '33259d26-9461-498d-bda3-af596144a6b0'
     user:
       type: object
       required:
